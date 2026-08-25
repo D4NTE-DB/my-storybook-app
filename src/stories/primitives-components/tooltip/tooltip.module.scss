@@ -1,0 +1,103 @@
+@use '../../core-ui/styles/variables.scss' as *;
+
+.tooltip-trigger {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  &:focus-visible {
+    outline: 1px dashed $miscellaneous-focus;
+  }
+}
+
+.tooltip-container {
+  z-index: var(--tooltip-z-index, #{$z-index-modal});
+
+  .container {
+    display: none;
+    cursor: default;
+
+    &.opened {
+      display: block;
+      animation: grow-in $duration-500 $ease-enter,
+        fade-in $duration-500 $ease-linear;
+    }
+
+    &.closed {
+      animation: grow-out $duration-300 $ease-exit,
+        fade-out $duration-300 $ease-linear;
+    }
+  }
+}
+
+.arrow {
+  box-sizing: border-box;
+  display: block;
+  color: $background-01;
+  margin-left: $spacer-03;
+  margin-right: $spacer-03;
+  pointer-events: none;
+
+  &.dark {
+    color: $black-700;
+  }
+}
+
+.tooltip {
+  max-width: 480px;
+  box-sizing: border-box;
+  padding: $spacer-03 $spacer-04;
+  border-radius: $radius-small;
+  background-color: $background-01;
+  box-shadow: $shadow-03;
+
+  &.dark {
+    background-color: $black-700;
+  }
+
+  &.copy {
+    cursor: pointer;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes grow-in {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes grow-out {
+  0% {
+    transform: scale(1);
+    display: block;
+  }
+
+  100% {
+    transform: scale(0);
+    display: none;
+  }
+}

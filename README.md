@@ -1,77 +1,105 @@
-# React + TypeScript + Vite
+# Core-UI Primitives Component Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React 19 + TypeScript component library built with Storybook and SCSS Modules. 
 
-Currently, two official plugins are available:
+## Table of Contents
+1. [Tech Stack](#tech-stack)
+2. [Getting Started](#getting-started)
+3. [Architecture Notes](#architecture-notes)
+4. [Component Overview](#component-overview)
+5. [Creating a New Component](#creating-a-new-component)
+6. [Testing](#testing)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- **React**: ^19.2.8
+- **TypeScript**: ^5.6.2
+- **Build Tool**: Vite 8
+- **Styling**: SCSS Modules
+- **Development Environment**: Storybook 10.5.1
+- **Testing**: Vitest + Playwright
 
-## React Compiler
+## Getting Started
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+First, install all dependencies:
+\`\`\`bash
+npm install
+\`\`\`
 
-Note: This will impact Vite dev & build performances.
+To start the Storybook development server:
+\`\`\`bash
+npm run storybook
+\`\`\`
 
-## Expanding the ESLint configuration
+To build the static Storybook site:
+\`\`\`bash
+npm run build-storybook
+\`\`\`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+To build the library:
+\`\`\`bash
+npm run build
+\`\`\`
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Architecture Notes
+The primitive components in \`src/stories/primitives-components/\` were originally extracted from an internal \`@Core-UI\` design system repository. Because the underlying npm packages (\`@Core-UI/react-icons\`, \`@Core-UI/utils\`) are not available in this standalone repo, they have been **mocked/stubbed** in the \`src/stories/Core-UI/\` directory.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Styles**: Shared SCSS variables and typography mixins live in \`src/stories/Core-UI/styles/\`.
+- **Primitives**: Base elements like \`Text\`, \`Icon\`, \`Block\`, and \`Popper\` have been implemented as local fallbacks so the UI components compile and render.
+- **Icons**: \`react-icons.tsx\` exports SVG glyphs used internally.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Component Overview
+The library includes 15 primitive components. You can view all their variants interactively in Storybook.
 
-```
+- **Accordion**: Collapsible content panels
+- **Avatar**: User profile images and initials
+- **BackToTop**: Floating button to scroll to top
+- **Button**: Standard interactive buttons
+- **Checkbox**: Form check inputs
+- **Chip**: Small interactive tags/labels
+- **Divider**: Horizontal/vertical separators
+- **Link**: Anchors and navigation links
+- **ProgressBar**: Visual progress indicators
+- **QuantityStepper**: Number input with +/- controls
+- **Radio**: Form radio inputs
+- **Slider**: Range selection
+- **Spacer**: Layout whitespace blocks
+- **Toast**: Floating notifications
+- **Tooltip**: Hover popovers
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Creating a New Component
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+To scaffold a new component, follow this structure:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Create a folder in \`src/stories/primitives-components/your-component\`
+2. Add \`your-component.tsx\` (Component logic)
+3. Add \`your-component.module.scss\` (Styles)
+4. Add \`index.ts\` (Exports)
+5. Add \`your-component.stories.tsx\` (Storybook docs)
 
-```
+Example \`your-component.stories.tsx\`:
+\`\`\`tsx
+import type { Meta, StoryObj } from '@storybook/react';
+import { YourComponent } from './index';
+
+const meta: Meta<typeof YourComponent> = {
+  title: 'Primitives/YourComponent',
+  component: YourComponent,
+};
+
+export default meta;
+type Story = StoryObj<typeof YourComponent>;
+
+export const Default: Story = {
+  args: {
+    id: 'my-comp-1',
+    children: 'Hello World'
+  }
+};
+\`\`\`
+
+## Testing
+This repository is configured with Vitest and Playwright. 
+To run unit tests:
+\`\`\`bash
+npm run test
+\`\`\`

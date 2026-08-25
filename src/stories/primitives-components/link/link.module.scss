@@ -1,0 +1,247 @@
+@use '../../core-ui/styles/variables.scss' as *;
+
+.container {
+  color: $text-primary;
+  font-family: $typeface-sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  width: max-content;
+
+  &.small {
+    font-size: $body-03-font-size;
+    line-height: $body-03-line-height;
+  }
+
+  &.medium {
+    font-size: $body-02-font-size;
+    line-height: $body-02-line-height;
+  }
+
+  &.large {
+    font-size: $body-01-font-size;
+    line-height: $body-01-line-height;
+  }
+
+  &:hover {
+    color: $link-primary-hover;
+
+    svg path {
+      fill: $link-primary-hover;
+    }
+  }
+
+  &:active {
+    color: $link-primary-pressed;
+
+    svg path {
+      fill: $link-primary-pressed;
+    }
+  }
+
+  &:focus-visible {
+    outline: 1px dashed $miscellaneous-focus;
+    color: $link-primary-hover;
+
+    svg path {
+      fill: $link-primary-hover;
+    }
+  }
+
+  &.underlined {
+    text-decoration: $text-decoration-underline;
+
+    &:hover {
+      color: $link-primary-hover;
+    }
+
+    &:active {
+      color: $link-primary-pressed;
+    }
+  }
+
+  &.tertiary {
+    &:hover {
+      color: $link-primary-hover;
+      text-decoration: $text-decoration-underline;
+    }
+
+    &:focus-visible {
+      color: $link-primary-hover;
+      text-decoration: $text-decoration-underline;
+    }
+
+    &:active {
+      color: $link-primary-pressed;
+      text-decoration: $text-decoration-underline;
+    }
+  }
+
+  &.basic {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: $text-decoration-underline;
+    }
+  }
+
+  &:visited {
+    color: $text-primary;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    fill: $red-800;
+    color: $icon-disabled;
+
+    svg path {
+      fill: $icon-disabled;
+      background: $icon-disabled;
+      color: $icon-disabled;
+    }
+  }
+
+  &.inverse {
+    color: $link-inverse;
+    background-color: transparent;
+
+    svg path {
+      fill: $link-inverse;
+    }
+
+    &:hover {
+      color: $link-inverse-hover;
+
+      svg path {
+        fill: $link-inverse-hover;
+      }
+    }
+
+    &:active {
+      color: $link-inverse-pressed;
+    }
+
+    &:focus-visible {
+      outline: 1px dashed $miscellaneous-focus-inverse;
+      color: $link-inverse-hover;
+
+      svg path {
+        fill: $link-inverse-hover;
+      }
+    }
+
+    &.disabled {
+      color: $text-on-color-disabled;
+
+      svg {
+        path {
+          fill: $text-on-color-disabled;
+        }
+      }
+    }
+  }
+
+  &.truncate-1,
+  &.truncate-2,
+  &.truncate-3 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    overflow-wrap: anywhere;
+    width: unset;
+  }
+
+  &.truncate-1 {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  &.truncate-2 {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  &.truncate-3 {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}
+
+.emphasis-low {
+  font-weight: $font-weight-regular; // Normal weight
+}
+
+.emphasis-high {
+  font-weight: $font-weight-semibold; // Bold weight
+}
+
+.skeleton {
+  display: flex;
+  width: 46px;
+  height: 18px;
+  align-items: center;
+  gap: $spacer-02;
+  flex-shrink: 0;
+
+  &.primary {
+    &.small {
+      width: 46px;
+      height: 18px;
+    }
+
+    &.medium {
+      width: 58px;
+      height: 24px;
+    }
+
+    &.large {
+      width: 65px;
+      height: 28px;
+    }
+  }
+
+  &.small {
+    width: 28px;
+    height: 18px;
+  }
+
+  &.medium {
+    width: 30px;
+    height: 24px;
+  }
+
+  &.large {
+    width: 37px;
+    height: 28px;
+  }
+
+  .link-skeleton {
+    flex: 1 0 0;
+    height: 16px;
+    background: $miscellaneous-skeleton-background-01;
+    animation: fade 2s infinite;
+    border-radius: $radius-small;
+
+    &.large {
+      height: 24px;
+    }
+  }
+
+  @keyframes fade {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+.link-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $spacer-03;
+}

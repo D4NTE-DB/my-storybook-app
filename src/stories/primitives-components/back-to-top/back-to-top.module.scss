@@ -1,0 +1,84 @@
+@use '../../core-ui/styles/variables.scss' as *;
+
+.button-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  justify-content: flex-end;
+  z-index: $z-index-sticky;
+  display: inline-flex;
+  padding: 5px $spacer-05;
+  align-items: center;
+  gap: $spacer-03;
+  border-radius: $radius-round;
+  border: 1px solid $chip-secondary;
+  background: $background-01;
+  box-shadow: $shadow-04;
+
+  .text-button {
+    font-size: $body-03-font-size;
+    font-weight: $font-weight-regular;
+    line-height: $body-03-line-height;
+    font-family: $typeface-sans-serif;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    &.medium {
+      font-size: $body-02-font-size;
+      font-weight: $font-weight-regular;
+      line-height: $body-02-line-height;
+    }
+  }
+
+  &:hover {
+    background: $chip-secondary-hover;
+  }
+
+  &:focus-visible {
+    outline: 1px dashed $button-secondary;
+    background-color: $chip-tertiary-pressed;
+  }
+
+  &:active {
+    background: $chip-secondary-pressed;
+  }
+
+  &.medium {
+    border-radius: $radius-round;
+    color: $text-primary;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: $typeface-serif, serif;
+    font-size: $body-03-font-size;
+    font-weight: $font-weight-regular;
+    line-height: $body-03-line-height;
+    padding: 11px $spacer-05;
+  }
+
+  &:disabled {
+    color: $text-disabled;
+    background: $background-01;
+    cursor: inherit;
+    border: 1px solid $chip-secondary-disabled;
+    outline: none;
+  }
+}
+
+.skeleton {
+  display: flex;
+  width: 117px;
+  height: 32px;
+  padding: 6px $spacer-04;
+  align-items: flex-start;
+  gap: $spacer-03;
+  flex-shrink: 0;
+  border-radius: $radius-round;
+  background: $miscellaneous-skeleton-background-01;
+  border: none;
+  box-shadow: none;
+
+  &.medium {
+    border-radius: $radius-round;
+    width: 139px;
+    height: 48px;
+    padding: 6px $spacer-04;
+  }
+}

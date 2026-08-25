@@ -1,0 +1,76 @@
+@use '../../core-ui/styles/variables.scss' as *;
+
+.container {
+  background: $button-primary-hover;
+  box-shadow: $shadow-05;
+  backdrop-filter: blur(4px);
+  opacity: 0.88;
+  border-radius: $radius-medium;
+  position: fixed;
+  display: flex;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: flex-start;
+  bottom: -100px;
+  z-index: $z-index-notification;
+
+  &.visible {
+    bottom: 50px;
+    opacity: 1;
+    animation: fade-in $duration-500;
+    animation-fill-mode: forwards;
+    transition-timing-function: $ease-enter;
+  }
+
+  &.hidden {
+    bottom: 50px;
+    animation: fade-out $duration-400;
+    animation-fill-mode: forwards;
+    transition-timing-function: $ease-exit;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translate3d(-50%, 100px, 0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+      transform: translate3d(-50%, 0, 0);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate3d(-50%, 100px, 0);
+    }
+  }
+
+  .image-container {
+    display: flex;
+    width: 20px;
+    height: 48px;
+    padding: 0 4px 0 16px;
+    align-items: center;
+  }
+
+  .text-wrapper {
+    color: $text-primary-inverse;
+    font-family: $typeface-sans-serif;
+    font-weight: $font-weight-regular;
+    font-size: $body-03-font-size;
+    line-height: $body-03-line-height;
+    display: flex;
+    padding: 14px 16px 14px 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}

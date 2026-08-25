@@ -1,0 +1,115 @@
+@use '../../core-ui/styles/variables.scss' as *;
+@use '../../core-ui/styles/mixins/text.scss';
+
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $spacer-04;
+  flex-shrink: 0;
+  background: transparent;
+  background-blend-mode: multiply;
+
+  &.medium {
+    gap: $spacer-05;
+  }
+
+  &.inline {
+    &.small {
+      gap: $spacer-03;
+    }
+
+    &.medium {
+      gap: $spacer-04;
+    }
+  }
+
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
+  .progress-bar-item {
+    display: flex;
+    height: 8px;
+    align-items: flex-start;
+    align-self: stretch;
+    background: $border-01;
+    border-radius: 12px;
+    width: 100%;
+
+    &.background {
+      background: none;
+    }
+
+    &.subheader-progress {
+      height: 8px;
+    }
+  }
+
+  .progress-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+
+    &.inline {
+      flex-direction: row;
+      align-items: center;
+      gap: $spacer-05;
+    }
+
+    .helper-text-inline {
+      align-content: center;
+      flex-flow: row wrap;
+      display: flex;
+      align-items: center;
+      height: 8px;
+
+      &.helper-text-inline-subheader {
+        height: 7px;
+      }
+    }
+  }
+
+  .progress-bar-gap {
+    gap: $spacer-02;
+  }
+
+  .progress-bar-filled {
+    height: 100%;
+    border-radius: 12px;
+    transition: width 0.3s ease-in-out;
+    background: $background-04;
+
+    &.positive {
+      background: $support-positive;
+    }
+
+    &.negative {
+      background: $support-negative;
+    }
+
+    &.informative {
+      background: $blue-800;
+    }
+
+    &.warning {
+      background: $support-warning;
+    }
+
+    &.neutral {
+      background: $support-neutral;
+    }
+  }
+
+  .helper-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $spacer-05;
+    align-self: stretch;
+  }
+}
