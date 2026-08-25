@@ -1,0 +1,645 @@
+@use '../../core-ui/styles/variables.scss' as *;
+
+.accordion-container {
+  background: $background-01;
+
+  &.accordion-card {
+    border-radius: $radius-medium;
+    background: $background-01;
+    border: none;
+    display: flex;
+    flex-direction: column;
+
+    &.background-01 {
+      background: $background-01;
+    }
+
+    &.background-02 {
+      background: $background-02;
+    }
+
+    &.background-03 {
+      background: $background-03;
+    }
+
+    &.elevated {
+      box-shadow: $shadow-02;
+    }
+
+    &.large {
+      border-radius: $radius-xlarge;
+    }
+
+    &.border {
+      box-shadow: none;
+    }
+  }
+
+  &.accordion-card-border-expanded {
+    border-radius: $radius-medium;
+    border: 1px solid $border-03;
+    background: $background-01;
+
+    &.large {
+      border-radius: $radius-large;
+    }
+
+    &.border-01,
+    &.elevated {
+      border: 1px solid $border-01;
+    }
+
+    &.border-02,
+    &.outline {
+      border: 1px solid $border-02;
+    }
+
+    &.border-03 {
+      border: 1px solid $border-03;
+    }
+
+    &.filled {
+      border: none;
+    }
+
+    &.disabled {
+      border: 1px solid $border-01;
+      background: $background-01;
+    }
+
+    &:focus-visible {
+      border: 1px dashed $border-active-01;
+      outline: none;
+    }
+  }
+
+  .accordion-content {
+    color: $text-secondary;
+    padding: $spacer-00 $spacer-05;
+    font-family: $typeface-sans-serif;
+    font-size: $body-03-font-size;
+    font-weight: $font-weight-regular;
+    line-height: $body-03-line-height;
+
+    &.medium {
+      font-size: $body-02-font-size;
+      line-height: $body-02-line-height;
+    }
+
+    &.large {
+      font-size: $body-02-font-size;
+      line-height: $body-02-line-height;
+    }
+
+    &.background-01 {
+      background: $background-01;
+    }
+
+    &.background-02 {
+      background: $background-02;
+    }
+
+    &.background-03 {
+      background: $background-03;
+    }
+
+    &.disabled {
+      background-blend-mode: multiply;
+      color: $miscellaneous-skeleton-background-02;
+    }
+
+    &.accordion-card {
+      display: flex;
+      padding: $spacer-03 $spacer-05 $spacer-05 $spacer-05;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacer-05;
+      align-self: stretch;
+      border-radius: $spacer-03;
+
+      &.large {
+        padding: $spacer-03 $spacer-07 $spacer-07 $spacer-07;
+        border-radius: $radius-xlarge;
+      }
+    }
+  }
+
+  .accordion-subheader {
+    span {
+      font-family: $typeface-sans-serif;
+      font-size: $body-03-font-size;
+      font-weight: $font-weight-regular;
+      line-height: $body-03-line-height;
+    }
+  }
+
+  .accordion-header {
+    border: none;
+    border-top: 1px solid $border-03;
+    background: none;
+    background-blend-mode: multiply;
+    padding: $spacer-00;
+    box-sizing: border-box;
+    width: 100%;
+
+    &.border-01 {
+      border-top: 1px solid $border-01;
+    }
+
+    &.border-02 {
+      border-top: 1px solid $border-02;
+    }
+
+    &.border-03 {
+      border-top: 1px solid $border-03;
+    }
+
+    &:focus-visible {
+      border: 1px dashed $border-03;
+      outline: none;
+      background: $miscellaneous-transparent;
+      background-blend-mode: multiply;
+    }
+
+    &.background-01 {
+      background: $background-01;
+    }
+
+    &.background-02 {
+      background: $background-02;
+    }
+
+    &.background-03 {
+      background: $background-03;
+    }
+
+    &.no-border {
+      border-top: 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .accordion-card {
+      &:focus-visible {
+        border: 1px dashed $border-active-01;
+      }
+    }
+
+    &.disabled {
+      border-top: 1px solid $miscellaneous-skeleton-background-02;
+      background-blend-mode: multiply;
+      color: $miscellaneous-skeleton-background-02;
+
+      &:hover {
+        cursor: not-allowed;
+      }
+
+      .accordion-subheader {
+        color: $miscellaneous-skeleton-background-02;
+      }
+    }
+
+    &.medium {
+      .accordion-subheader {
+        span {
+          font-size: $body-03-font-size;
+          line-height: $body-03-line-height;
+        }
+      }
+
+      .accordion-title {
+        span {
+          font-size: $heading-06-font-size;
+          line-height: $heading-06-line-height;
+        }
+      }
+    }
+
+    &.large {
+      .accordion-subheader {
+        span {
+          font-size: $body-02-font-size;
+          line-height: $body-02-line-height;
+        }
+      }
+
+      .accordion-title {
+        span {
+          font-size: $heading-04-font-size;
+          line-height: $heading-04-line-height;
+        }
+      }
+    }
+
+    &.accordion-card {
+      border-radius: $radius-medium;
+      display: flex;
+      flex-direction: column;
+
+      &.small {
+        gap: $spacer-01;
+      }
+
+      &.large {
+        border-radius: $radius-xlarge;
+      }
+
+      &:focus-visible {
+        border-radius: $radius-medium;
+      }
+    }
+
+    &.accordion-card-border {
+      border-radius: $radius-medium;
+      border: 1px solid $border-03;
+      background: $background-01;
+      box-shadow: none;
+
+      &.large {
+        border-radius: $radius-large;
+      }
+
+      &.border-01 {
+        border: 1px solid $border-01;
+      }
+
+      &.border-02 {
+        border: 1px solid $border-02;
+      }
+
+      &.border-03 {
+        border: 1px solid $border-03;
+      }
+
+      &.filled {
+        border: none;
+      }
+
+      &.disabled {
+        border: 1px solid $border-01;
+        background: $background-01;
+      }
+
+      &:focus-visible {
+        border: 1px dashed $border-active-01;
+        outline: none;
+      }
+
+      &.accordion-card-border-expanded {
+        border: none;
+
+        &:focus-visible {
+          border: 1px dashed $border-active-01;
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .no-border {
+    border-top: 0;
+  }
+
+  .accordion-title {
+    color: $text-primary;
+    font-weight: $font-weight-semibold;
+    font-size: $heading-07-font-size;
+    line-height: $heading-07-line-height;
+    font-family: $typeface-sans-serif;
+
+    &.disabled {
+      color: $text-disabled;
+    }
+  }
+
+  .accordion-header-container {
+    display: flex;
+    padding: 7px $spacer-05;
+    gap: $spacer-05;
+    align-self: stretch;
+    align-items: stretch;
+    justify-content: space-between;
+    outline: none;
+
+    &.small {
+      gap: $spacer-03;
+    }
+
+    &.left-align {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+
+    &.medium {
+      padding: 14px $spacer-05;
+
+      &.sub-header-container {
+        padding: 14px $spacer-05;
+
+        &.left-align {
+          padding: 15px $spacer-05;
+        }
+      }
+    }
+
+    &.large {
+      padding: $spacer-05;
+      align-items: center;
+
+      &.sub-header-container {
+        padding: 14px $spacer-05;
+
+        &.left-align {
+          padding: 15px $spacer-05;
+        }
+      }
+    }
+
+    &.chevron-start {
+      justify-content: flex-start;
+    }
+
+    .accordion-title-container {
+      display: flex;
+      align-items: center;
+      gap: $spacer-05;
+
+      .accordion-title-icon-wrapper {
+        width: 32px;
+        height: 32px;
+      }
+
+      .accordion-title-subheader-container {
+        display: flex;
+        flex-direction: column;
+        gap: $spacer-02;
+        align-content: flex-start;
+        align-items: flex-start;
+
+        &.small {
+          gap: $spacer-01;
+        }
+
+        &.medium {
+          &.left-align {
+            gap: $spacer-01;
+          }
+
+          &.expanded {
+            gap: $spacer-02;
+          }
+        }
+
+        &.large {
+          &.left-align {
+            gap: $spacer-01;
+          }
+
+          &.expanded {
+            gap: $spacer-02;
+          }
+        }
+
+        &.accordion-card {
+          &.large {
+            gap: $spacer-02;
+          }
+        }
+
+        &.expanded {
+          gap: $spacer-01;
+        }
+      }
+
+      &.accordion-card {
+        &.large {
+          gap: $spacer-02;
+        }
+      }
+
+      &.expanded {
+        gap: $spacer-01;
+      }
+    }
+
+    &.accordion-card {
+      &.small {
+        padding: $spacer-04 $spacer-05;
+        min-height: 24px;
+        align-items: center;
+
+        &.sub-header-container {
+          padding: $spacer-05;
+        }
+      }
+
+      &.medium {
+        padding: $spacer-05 $spacer-06;
+        min-height: 32px;
+        align-items: center;
+      }
+
+      &.large {
+        padding: $spacer-06 $spacer-07;
+
+        &.sub-header-container {
+          padding: 30px $spacer-07;
+        }
+      }
+
+      &:focus-visible {
+        border-radius: $radius-medium;
+        border: 1px dashed $border-active-01;
+        outline: none;
+
+        &.large {
+          border-radius: $spacer-04;
+        }
+      }
+    }
+
+    &.sub-header-container {
+      &.small {
+        padding: $spacer-03 $spacer-05;
+      }
+
+      &.large {
+        align-items: baseline;
+      }
+
+      &.medium {
+        align-items: flex-start;
+      }
+    }
+  }
+}
+
+.accordion-container-skeleton {
+  .accordion-title {
+    color: $text-primary;
+    background: $border-00;
+  }
+
+  .accordion-header-container {
+    align-items: center;
+    gap: $spacer-05;
+    justify-content: flex-start;
+
+    &.small {
+      padding: $spacer-03 $spacer-05;
+    }
+
+    &.large {
+      padding: 20px $spacer-05;
+    }
+
+    &.medium {
+      padding: 14px $spacer-05;
+    }
+
+    .accordion-title-container {
+      display: flex;
+      flex-direction: column;
+      gap: $spacer-03;
+      width: 100%;
+
+      &.small,
+      &.medium,
+      &.large {
+        gap: $spacer-03;
+      }
+    }
+  }
+
+  .accordion-skeleton-header {
+    background: $border-00;
+    width: 100%;
+
+    &.small {
+      height: 16px;
+    }
+
+    &.medium {
+      height: 20px;
+    }
+
+    &.large {
+      height: 24px;
+    }
+  }
+
+  .accordion-skeleton-contents {
+    background: $border-00;
+    height: 16px;
+    width: 368px;
+  }
+
+  .accordion-icon {
+    align-self: flex-start;
+
+    &.small {
+      height: 16px;
+    }
+
+    &.medium {
+      height: 20px;
+    }
+
+    &.large {
+      height: 24px;
+    }
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .accordion-subheader {
+    background: $border-00;
+    width: 93px;
+    height: 16px;
+    padding-top: $spacer-00;
+  }
+
+  .accordion-subheader-content {
+    background: $border-00;
+    width: 184px;
+    height: 16px;
+    padding-top: $spacer-00;
+  }
+}
+
+.accordion-card-skeleton {
+  border-radius: $radius-medium;
+  background: $border-00;
+  border: none;
+  width: 536px;
+
+  &.small {
+    height: 48px;
+  }
+
+  &.medium {
+    height: 64px;
+  }
+
+  &.large {
+    height: 80px;
+    border-radius: $radius-xlarge;
+  }
+
+  &.expanded-skeleton {
+    &.small {
+      height: 188px;
+    }
+
+    &.medium {
+      height: 228px;
+    }
+
+    &.large {
+      height: 284px;
+    }
+  }
+}
+
+.accordion-icon-wrapper-top {
+  position: relative;
+  top: 2px;
+  display: flex;
+  align-self: flex-start;
+
+  &.large {
+    padding: $spacer-02 $spacer-00;
+  }
+}
+
+.accordion-icon-wrapper-center {
+  display: flex;
+  align-self: center;
+
+  &.large {
+    padding: $spacer-02 $spacer-00;
+  }
+}
+
+.accordion-skeleton-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+
+  &.large {
+    padding: $spacer-03 $spacer-05 $spacer-06 $spacer-05;
+    gap: $spacer-05;
+  }
+
+  &.small {
+    padding: $spacer-03 $spacer-05 $spacer-06 $spacer-05;
+    gap: $spacer-03;
+  }
+
+  &.medium {
+    padding: $spacer-03 $spacer-05 $spacer-06 $spacer-05;
+    gap: $spacer-05;
+  }
+}

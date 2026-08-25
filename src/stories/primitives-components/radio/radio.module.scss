@@ -1,0 +1,181 @@
+@use 'sass:color';
+@use '../../core-ui/styles/variables.scss' as *;
+
+.radio {
+  display: flex;
+  gap: $spacer-04;
+  padding: $spacer-02 $spacer-00;
+  align-items: flex-start;
+
+  &.top {
+    align-items: flex-start;
+  }
+
+  &.middle {
+    align-items: center;
+  }
+
+  &.bottom {
+    align-items: flex-end;
+  }
+
+  .label-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.radio-button {
+  accent-color: $background-03;
+}
+
+label,
+.label-wrapper:hover,
+.radio:hover,
+.radio-button:hover {
+  cursor: pointer;
+
+  input[type='radio']:hover:not(:checked) {
+    appearance: none;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px $border-03;
+    cursor: pointer;
+  }
+}
+// stylelint-disable-next-line no-descending-specificity
+input[type='radio']:focus-visible {
+  outline: 1px dashed $border-active-01;
+  outline-offset: 4px;
+}
+// stylelint-disable-next-line no-descending-specificity
+input[type='radio']:checked {
+  accent-color: $background-04;
+  appearance: none;
+  border-radius: 50%;
+  border: 3px solid $border-01;
+  background: $background-04;
+  box-shadow: 0 0 0 2px;
+  // stylelint-disable-next-line no-descending-specificity
+  &:focus-visible {
+    outline: 1px dashed $border-active-01;
+    outline-offset: 2px;
+    appearance: none;
+    border-radius: 50%;
+    background: $background-04;
+    border: 1px solid $border-inverse;
+    box-shadow: none;
+  }
+}
+
+.radio-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// stylelint-disable-next-line no-descending-specificity
+input[type='radio'] {
+  height: 16px;
+  width: 16px;
+  gap: $spacer-03;
+  margin: $spacer-02;
+
+  &.input-description {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+// stylelint-disable-next-line no-descending-specificity
+input[type='radio']:not(:checked) {
+  border-radius: 50%;
+  appearance: none;
+  background: $background-03;
+  box-shadow: 0 0 1px 1px $border-03;
+}
+
+.radio.error {
+  // stylelint-disable-next-line no-descending-specificity
+  input[type='radio']:not(:checked) {
+    background: $support-negative-light;
+    box-shadow: 0 0 1px 1px $support-negative;
+
+    &:hover {
+      color: $support-negative;
+      box-shadow: 0 0 2px 2px $support-negative;
+    }
+  }
+
+  // stylelint-disable-next-line no-descending-specificity
+  input[type='radio']:checked {
+    accent-color: $support-negative;
+    border: 3px solid $border-01;
+    background: $support-negative;
+    box-shadow: 0 0 0 2px $support-negative;
+
+    &:hover {
+      background: $support-negative;
+      color: $support-negative;
+      box-shadow: 0 0 1px 1px $support-negative;
+    }
+  }
+
+  .radio-description,
+  label {
+    color: $support-negative;
+  }
+}
+
+.radio.disabled {
+  cursor: not-allowed;
+  // stylelint-disable-next-line no-descending-specificity
+  input[type='radio']:not(:checked),
+  input[type='radio']:hover:not(:checked) {
+    background: $background-01;
+    box-shadow: 0 0 1px 1px $border-01;
+    cursor: not-allowed;
+  }
+
+  // stylelint-disable-next-line no-descending-specificity
+  input[type='radio']:checked {
+    background: $icon-disabled;
+    box-shadow: 0 0 1px 1px $border-01;
+    cursor: not-allowed;
+
+    &:hover {
+      background: $icon-disabled;
+      box-shadow: 0 0 1px 1px $border-01;
+      cursor: not-allowed;
+    }
+  }
+
+  .radio-description,
+  label {
+    color: $border-02;
+  }
+}
+
+.skeleton {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 2px;
+  padding: 6px 0;
+
+  #radio-skeleton {
+    background: $miscellaneous-skeleton-background-01;
+    border-radius: 50%;
+    display: inline-block;
+    height: 20px;
+    box-shadow: 0 0 1px 1px $miscellaneous-skeleton-background-01;
+    width: 20px;
+  }
+
+  #label-skeleton {
+    background: $miscellaneous-skeleton-background-01;
+    display: inline-block;
+    height: 16px;
+    margin-left: 12px;
+    width: 79px;
+  }
+}

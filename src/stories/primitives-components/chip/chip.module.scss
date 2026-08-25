@@ -1,0 +1,579 @@
+@use '../../core-ui/styles/variables.scss' as *;
+
+.chip-container {
+  cursor: pointer;
+  gap: $spacer-03;
+
+  &.small,
+  &.small-outline {
+    padding: 6px $spacer-05;
+    border-radius: $radius-round;
+
+    &-outline {
+      padding: 5px 15px;
+    }
+  }
+
+  &.medium,
+  &.medium-outline {
+    padding: $spacer-04 20px;
+    border-radius: $radius-round;
+
+    &-outline {
+      padding: 11px 19px;
+    }
+  }
+
+  &.leading-icon,
+  &.leading-icon-outline,
+  &.leading-icon-outline-medium,
+  &.delete-outline-medium {
+    display: flex;
+    place-content: center space-around;
+    align-items: center;
+    gap: $spacer-03;
+    padding: 6px $spacer-04;
+
+    &.medium {
+      padding: $spacer-04 $spacer-05;
+    }
+
+    &-outline {
+      padding: 5px 11px;
+
+      &-medium {
+        padding: 11px 15px;
+      }
+    }
+  }
+
+  &.trailing-icon,
+  &.error-delete,
+  &.delete,
+  &.trailing-icon-outline,
+  &.error-delete-outline,
+  &.delete-outline,
+  &.delete-outline-medium,
+  &.delete-medium,
+  &.error-delete-outline-medium,
+  &.trailing-icon-outline-medium {
+    display: flex;
+    place-content: center space-around;
+    align-items: center;
+    gap: $spacer-03;
+    padding: 6px $spacer-04;
+
+    &.medium {
+      padding: $spacer-04 $spacer-05;
+    }
+
+    &-outline {
+      padding: 5px 11px;
+
+      &-medium {
+        padding: 11px 15px;
+      }
+    }
+  }
+
+  &.icon-only,
+  &.icon-only-outline,
+  &.icon-only-outline-medium {
+    display: inline-flex;
+    padding: $spacer-03;
+    justify-content: center;
+    align-items: center;
+    gap: $spacer-03;
+
+    &.medium {
+      padding: $spacer-04;
+    }
+
+    &-outline {
+      padding: 7px;
+
+      &-medium {
+        padding: 11px;
+      }
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    color: $chip-selected;
+    border: 1px solid $chip-secondary;
+
+    &:hover {
+      background-color: $chip-secondary-hover;
+    }
+
+    &:focus-visible {
+      background-color: $chip-secondary-hover;
+      outline: 1px dashed $chip-selected;
+    }
+
+    &:active {
+      background-color: $chip-secondary-pressed;
+    }
+
+    &.selected,
+    &.selected-small,
+    &.selected-medium,
+    &.selected-small-no-icon,
+    &.selected-medium-no-icon,
+    &.selected-small-icon-only,
+    &.selected-medium-icon-only {
+      color: $text-primary;
+      border: 2px solid $chip-selected;
+
+      &-small-no-icon {
+        padding: 4px 14px;
+      }
+
+      &-medium-no-icon {
+        padding: 10px 18px;
+      }
+
+      &-small {
+        padding: 4px 10px;
+      }
+
+      &-medium {
+        padding: 10px 14px;
+      }
+
+      &-small-icon-only {
+        padding: 6px;
+      }
+
+      &-medium-icon-only {
+        padding: 10px;
+      }
+    }
+  }
+
+  &.filled {
+    background-color: $chip-primary;
+    color: $chip-selected;
+    border: none;
+
+    &:hover {
+      background-color: $chip-primary-hover;
+    }
+
+    &:focus-visible {
+      background-color: $chip-primary-hover;
+      outline: 1px dashed $chip-selected;
+    }
+
+    &:active {
+      background-color: $chip-primary-pressed;
+    }
+
+    &.selected {
+      background-color: $miscellaneous-focus;
+      color: $miscellaneous-focus-inverse;
+      border: none;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $miscellaneous-focus;
+        color: $miscellaneous-focus-inverse;
+        border: none;
+      }
+    }
+  }
+
+  &.ghost {
+    background-color: transparent;
+    color: $text-primary;
+    border: none;
+
+    &:hover {
+      background-color: $chip-secondary-hover;
+    }
+
+    &:focus-visible {
+      background-color: $chip-secondary-hover;
+      outline: 1px dashed $chip-selected;
+    }
+
+    &:active {
+      background-color: $chip-secondary-pressed;
+    }
+
+    &.selected {
+      background-color: $background-01;
+      color: $text-primary;
+      border: none;
+
+      &-small {
+        padding: 5px 11px;
+      }
+
+      &-medium {
+        padding: 11px 15px;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $background-01;
+        color: $text-primary;
+        border: none;
+      }
+    }
+
+    &.icon-only {
+      &.selected {
+        background-color: $miscellaneous-focus;
+        color: $miscellaneous-focus-inverse;
+        border: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $miscellaneous-focus;
+          color: $miscellaneous-focus-inverse;
+          border: none;
+        }
+      }
+    }
+  }
+
+  &.skeleton {
+    background-color: $miscellaneous-skeleton-background-01;
+    cursor: inherit;
+    display: inline-flex;
+    padding: 6px $spacer-05;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacer-05;
+    border-radius: $radius-round;
+    border: none;
+
+    &.small {
+      height: 32px;
+      width: 88px;
+    }
+
+    &.medium {
+      padding: $spacer-04 20px;
+      border-radius: $radius-round;
+      height: 48px;
+      width: 112px;
+    }
+  }
+
+  &.error {
+    color: $text-negative;
+
+    &:hover {
+      background-color: $support-negative-light;
+    }
+
+    &:focus-visible {
+      background-color: $support-negative-light;
+      outline: 1px dashed $miscellaneous-focus;
+    }
+
+    &:active {
+      background-color: $chip-primary-negative;
+    }
+  }
+
+  &.error-delete {
+    &.outline {
+      color: $text-negative;
+      border: 1px solid $chip-secondary-negative;
+
+      &:hover {
+        background-color: $chip-primary-negative-hover;
+      }
+
+      &:focus-visible {
+        background-color: $chip-primary-negative-hover;
+        outline: 1px dashed $miscellaneous-focus;
+        border: none;
+        padding: $spacer-04 $spacer-05;
+      }
+
+      &:active {
+        background-color: $chip-secondary-negative-pressed;
+      }
+
+      &.selected {
+        &-small {
+          padding: 5px 11px;
+        }
+
+        &-medium {
+          padding: 11px 15px;
+        }
+
+        &-small,
+        &-medium {
+          color: $text-negative;
+          border: 1px solid $chip-secondary-negative;
+
+          &:hover,
+          &:focus,
+          &:active {
+            color: $text-negative;
+            border: 1px solid $chip-secondary-negative;
+            background-color: $chip-secondary-negative-pressed;
+          }
+        }
+      }
+    }
+
+    &.filled {
+      background-color: $chip-secondary-negative-hover;
+      color: $text-negative;
+
+      &:hover {
+        background-color: $chip-primary-negative-hover;
+      }
+
+      &:focus-visible {
+        background-color: $chip-secondary-negative-hover;
+        outline: 1px dashed $miscellaneous-focus;
+      }
+
+      &:active {
+        background-color: $chip-secondary-negative-pressed;
+      }
+
+      &.selected {
+        background-color: $chip-primary-negative;
+        color: $text-negative;
+        border: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $chip-primary-negative;
+          color: $text-negative;
+          border: none;
+        }
+      }
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: $text-disabled;
+
+    &:hover,
+    &:focus,
+    &:focus-visible,
+    &:active {
+      outline: none;
+    }
+
+    &.outline {
+      background-color: transparent;
+      border: 1px solid $chip-secondary-disabled;
+
+      &:hover,
+      &:focus,
+      &:focus-visible,
+      &:active {
+        background-color: transparent;
+        border: 1px solid $chip-secondary-disabled;
+      }
+    }
+
+    &.filled {
+      background: $chip-primary-disabled;
+
+      &:hover,
+      &:focus,
+      &:focus-visible,
+      &:active {
+        background: $chip-primary-disabled;
+      }
+    }
+
+    &.ghost {
+      background: $background-01;
+
+      &:hover,
+      &:focus,
+      &:focus-visible,
+      &:active {
+        background: $background-01;
+      }
+    }
+
+    &.error,
+    &.error-delete {
+      color: $text-disabled;
+    }
+  }
+}
+
+.text-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $spacer-02;
+}
+
+.chip-container-delete {
+  border: none;
+  outline: none;
+  display: inline-flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  gap: $spacer-03;
+  padding: 4px 8px 4px $spacer-04;
+  border-radius: $radius-round;
+
+  &.medium {
+    padding: 10px 12px 10px $spacer-05;
+  }
+
+  &.filled {
+    background: $chip-primary;
+
+    &.error-delete {
+      background: $chip-primary-negative-hover;
+    }
+  }
+
+  &.outline {
+    outline: 1px solid $chip-secondary;
+    background: transparent;
+
+    &.error-delete {
+      outline: 1px solid $chip-secondary-negative;
+    }
+  }
+
+  &.ghost {
+    background: transparent;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+
+    &.filled,
+    &.filled.error-delete {
+      background: $chip-primary-disabled;
+    }
+
+    &.outline,
+    &.outline.error-delete {
+      background: transparent;
+      outline: 1px solid $chip-secondary-disabled;
+    }
+
+    &.ghost,
+    &.ghost.error-delete {
+      background: $background-01;
+    }
+  }
+
+  .delete-chip-content {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:focus-visible {
+      outline: 1px dashed $miscellaneous-focus;
+      border-radius: $radius-round;
+    }
+  }
+
+  .delete-icon-container {
+    display: inline-flex;
+    border-radius: $radius-round;
+    padding: 4px;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    svg {
+      color: $icon-primary;
+      pointer-events: none;
+    }
+
+    &:hover {
+      svg {
+        color: $button-primary-hover;
+      }
+    }
+
+    &:focus-visible {
+      outline: 1px dashed $miscellaneous-focus;
+
+      svg {
+        color: $button-primary-hover;
+      }
+    }
+
+    &:active,
+    &:focus {
+      svg {
+        color: $button-primary-pressed;
+      }
+    }
+
+    &.error-delete {
+      svg {
+        color: $text-negative;
+      }
+
+      &:hover {
+        svg {
+          color: $text-negative;
+        }
+      }
+
+      &:focus-visible {
+        svg {
+          color: $text-negative;
+        }
+      }
+
+      &:active,
+      &:focus {
+        svg {
+          color: $text-negative;
+        }
+      }
+    }
+
+    &.disabled,
+    &:disabled {
+      cursor: not-allowed;
+
+      /* stylelint-disable-next-line no-descending-specificity */
+      svg {
+        color: $icon-disabled;
+      }
+
+      &:hover,
+      &:focus-visible,
+      &:active,
+      &:focus {
+        svg {
+          color: $icon-disabled;
+        }
+      }
+    }
+  }
+}

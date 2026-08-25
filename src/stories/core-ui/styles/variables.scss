@@ -1,0 +1,187 @@
+$background-01: #ffffff;
+$background-02: #f4f4f4;
+$text-primary: #161616;
+$text-secondary: #525252;
+$border-01: #e0e0e0;
+$interactive-01: #0f62fe;
+$interactive-02: #393939;
+$danger-01: #da1e28;
+$success-01: #24a148;
+$warning-01: #f1c21b;
+
+$spacer-01: 2px;
+$spacer-02: 4px;
+$spacer-03: 8px;
+$spacer-04: 12px;
+$spacer-05: 16px;
+$spacer-06: 24px;
+$spacer-07: 32px;
+$spacer-08: 40px;
+$spacer-09: 48px;
+
+$radius-small: 2px;
+$radius-medium: 4px;
+$radius-large: 8px;
+
+$shadow-01: 0 1px 2px rgba(0,0,0,0.1);
+$shadow-02: 0 4px 8px rgba(0,0,0,0.1);
+
+$transition-fast: 110ms;
+$transition-normal: 250ms;
+
+/* Typography */
+$typeface-sans-serif: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+$typeface-serif: 'Georgia', 'Cambria', 'Times New Roman', serif;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+
+$heading-01-font-size: 2.25rem;
+$heading-01-line-height: 2.75rem;
+$heading-03-font-size: 1.75rem;
+$heading-03-line-height: 2.25rem;
+$heading-04-font-size: 1.25rem;
+$heading-04-line-height: 1.75rem;
+$heading-05-font-size: 1rem;
+$heading-05-line-height: 1.5rem;
+$heading-06-font-size: 0.875rem;
+$heading-06-line-height: 1.25rem;
+$heading-07-font-size: 0.75rem;
+$heading-07-line-height: 1rem;
+
+$body-01-font-size: 1rem;
+$body-01-line-height: 1.5rem;
+$body-02-font-size: 0.875rem;
+$body-02-line-height: 1.25rem;
+$body-03-font-size: 0.75rem;
+$body-03-line-height: 1rem;
+$body-04-font-size: 0.6875rem;
+$body-04-line-height: 0.875rem;
+
+/* Backgrounds */
+$background-03: #e0e0e0;
+$background-04: #c6c6c6;
+$background-01-hover: #e8e8e8;
+$background-01-pressed: #d6d6d6;
+$background-01-alt-selected: #e0e8ff;
+
+/* Text & Icon Colors */
+$text-disabled: #a8a8a8;
+$text-negative: #da1e28;
+$text-primary-inverse: #ffffff;
+$text-on-color-disabled: #8d8d8d;
+$text-decoration-underline: #0f62fe;
+$icon-primary: #161616;
+$icon-inverse: #ffffff;
+$icon-disabled: #c6c6c6;
+
+/* Borders */
+$border-00: transparent;
+$border-02: #c6c6c6;
+$border-03: #a8a8a8;
+$border-active-01: #0f62fe;
+$border-inverse: #161616;
+
+/* Interactive / Button Colors */
+$button-primary-hover: #0353e9;
+$button-primary-pressed: #002d9c;
+$button-secondary: #393939;
+$button-secondary-hover: #4c4c4c;
+$button-secondary-pressed: #2a2a2a;
+$button-secondary-disabled: #c6c6c6;
+$button-tertiary: transparent;
+$button-tertiary-hover: #e8e8e8;
+$button-tertiary-pressed: #d6d6d6;
+$button-tertiary-disabled: transparent;
+$button-brand: #0f62fe;
+$button-brand-hover: #0353e9;
+$button-brand-pressed: #002d9c;
+
+$button-primary-inverse: #ffffff;
+$button-primary-inverse-hover: #f4f4f4;
+$button-primary-inverse-pressed: #e0e0e0;
+$button-primary-inverse-disabled: #525252;
+$button-secondary-inverse: #393939;
+$button-secondary-inverse-hover: #4c4c4c;
+$button-secondary-inverse-pressed: #2a2a2a;
+$button-secondary-inverse-disabled: #525252;
+
+/* Link Colors */
+$link-primary: #0f62fe;
+$link-primary-hover: #0043ce;
+$link-primary-pressed: #002d9c;
+$link-inverse: #78a9ff;
+$link-inverse-hover: #a6c8ff;
+$link-inverse-pressed: #5690f0;
+
+/* Chip Colors */
+$chip-primary: #e0e0e0;
+$chip-primary-hover: #c6c6c6;
+$chip-primary-pressed: #a8a8a8;
+$chip-secondary: #f4f4f4;
+$chip-secondary-hover: #e0e0e0;
+$chip-secondary-pressed: #c6c6c6;
+$chip-selected: #0f62fe;
+$chip-primary-disabled: #f4f4f4;
+$chip-secondary-disabled: #f4f4f4;
+
+$chip-primary-negative: #fff1f1;
+$chip-secondary-negative: #fff1f1;
+$chip-primary-negative-hover: #ffd7d9;
+$chip-secondary-negative-pressed: #ff8389;
+$chip-secondary-negative-hover: #ffd7d9;
+
+/* Semantic Colors */
+$support-positive: #24a148;
+$support-negative: #da1e28;
+$support-negative-light: #fff1f1;
+$support-warning: #f1c21b;
+$support-neutral: #525252;
+
+/* Named Palette Colors */
+$black-200: #e0e0e0;
+$black-700: #393939;
+$black-800: #262626;
+$green-300: #6fdc8c;
+$yellow-300: #f1c21b;
+$yellow-800: #684e00;
+$dark-red-300: #ff8389;
+$red-200: #ffd7d9;
+$red-800: #750e13;
+$blue-300: #78a9ff;
+$blue-800: #0043ce;
+$brown-300: #c9a078;
+$brown-800: #5a3d1e;
+$teal-300: #08bdba;
+$teal-800: #004d49;
+
+/* Spacing, Radius & Miscellaneous */
+$spacer-00: 0;
+$radius-xsmall: 1px;
+$radius-xlarge: 12px;
+$radius-round: 9999px;
+$size: 1rem;
+$font: inherit;
+$miscellaneous-transparent: transparent;
+$miscellaneous-skeleton-background-01: #e0e0e0;
+$miscellaneous-skeleton-background-02: #c6c6c6;
+$miscellaneous-focus: 0 0 0 2px #0f62fe;
+$miscellaneous-focus-inverse: 0 0 0 2px #ffffff;
+$chip-tertiary-pressed: #d6d6d6; // Added missing chip tertiary pressed
+
+/* Shadows */
+$shadow-03: 0 8px 16px rgba(0,0,0,0.1);
+$shadow-04: 0 16px 32px rgba(0,0,0,0.1);
+$shadow-05: 0 24px 48px rgba(0,0,0,0.12);
+
+/* Z-Index */
+$z-index-sticky: 1000;
+$z-index-modal: 9000;
+$z-index-notification: 9500;
+
+/* Transitions */
+$duration-300: 300ms;
+$duration-400: 400ms;
+$duration-500: 500ms;
+$ease-enter: cubic-bezier(0.0, 0.0, 0.38, 0.9);
+$ease-exit: cubic-bezier(0.2, 0.0, 1, 0.9);
+$ease-linear: cubic-bezier(0, 0, 1, 1);

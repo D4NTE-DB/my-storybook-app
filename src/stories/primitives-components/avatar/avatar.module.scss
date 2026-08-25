@@ -1,0 +1,517 @@
+@use '../../core-ui/styles/variables.scss' as *;
+@use '../../core-ui/styles/mixins/text.scss';
+
+@mixin avatar-colors {
+  &.default {
+    color: $text-primary;
+
+    &.black {
+      background: $black-200;
+    }
+
+    &.green {
+      background: $green-300;
+    }
+
+    &.yellow {
+      background: $yellow-300;
+    }
+
+    &.dark-red {
+      background: $dark-red-300;
+    }
+
+    &.blue {
+      background: $blue-300;
+    }
+
+    &.red {
+      background: $red-200;
+    }
+
+    &.brown {
+      background: $brown-300;
+    }
+
+    &.teal {
+      background: $teal-300;
+    }
+
+    &.white {
+      background: $background-01;
+    }
+
+    &.icon-background {
+      background: none;
+    }
+  }
+
+  &.high {
+    color: $icon-inverse;
+
+    &.black {
+      background: $black-800;
+    }
+
+    &.green {
+      background: $support-positive;
+    }
+
+    &.yellow {
+      background: $yellow-800;
+      color: $text-primary;
+    }
+
+    &.dark-red {
+      background: $support-negative;
+    }
+
+    &.blue {
+      background: $blue-800;
+    }
+
+    &.red {
+      background: $red-800;
+    }
+
+    &.brown {
+      background: $brown-800;
+    }
+
+    &.teal {
+      background: $teal-800;
+    }
+
+    &.white {
+      background: $background-01;
+      color: $text-primary;
+    }
+
+    &.icon-background {
+      background: none;
+    }
+  }
+}
+
+.text-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .text-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: $spacer-03;
+    border: 1px solid $border-01;
+    border-radius: $radius-round;
+    background: $black-200;
+
+    &.high {
+      background: $black-800;
+    }
+
+    @include avatar-colors;
+
+    &.medium,
+    &.large {
+      gap: $spacer-03;
+    }
+
+    &.disabled {
+      background: $background-03;
+    }
+
+    &.xsmall {
+      width: 32px;
+      height: 32px;
+    }
+
+    &.small {
+      height: 40px;
+      width: 40px;
+    }
+
+    &.medium {
+      height: 48px;
+      width: 48px;
+    }
+
+    &.large {
+      height: 64px;
+      width: 64px;
+    }
+
+    &.xlarge {
+      height: 88px;
+      width: 88px;
+    }
+
+    &.xxlarge {
+      height: 120px;
+      width: 120px;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1 0 0;
+      align-self: stretch;
+      text-align: center;
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: $typeface-sans-serif;
+      font-style: normal;
+      font-weight: $font-weight-semibold;
+      text-transform: uppercase;
+
+      &.high {
+        color: $text-primary-inverse;
+
+        &.yellow,
+        &.white {
+          color: $text-primary;
+        }
+      }
+
+      &.disabled {
+        color: $text-disabled;
+      }
+
+      &.xsmall {
+        font-size: $heading-07-font-size;
+        line-height: $heading-07-line-height;
+      }
+
+      &.small {
+        font-size: $heading-06-font-size;
+        line-height: $heading-06-line-height;
+      }
+
+      &.medium {
+        font-size: $heading-05-font-size;
+        line-height: $heading-05-line-height;
+      }
+
+      &.large {
+        font-size: $heading-04-font-size;
+        line-height: $heading-04-line-height;
+      }
+
+      &.xlarge {
+        font-size: $heading-03-font-size;
+        line-height: $heading-03-line-height;
+      }
+
+      &.xxlarge {
+        font-size: $heading-01-font-size;
+        line-height: $heading-01-line-height;
+      }
+    }
+  }
+}
+
+.image-border-container {
+  padding: $spacer-02;
+  justify-content: center;
+  align-items: center;
+  gap: $spacer-03;
+  display: inline-flex;
+  flex-shrink: 0;
+  border-radius: $radius-round;
+  outline: 1px solid $border-01;
+  background: $background-01;
+
+  &.product-square.avatar-border {
+    border-radius: $radius-medium;
+  }
+
+  &.blend-mode {
+    mix-blend-mode: darken;
+  }
+
+  &.disabled {
+    opacity: 0.4;
+    outline: 1px solid $border-00;
+  }
+
+  &.large {
+    padding: $spacer-03;
+  }
+
+  &.xlarge {
+    padding: $spacer-04;
+  }
+
+  &.xxlarge {
+    padding: $spacer-03;
+  }
+
+  .image-border {
+    flex-shrink: 0;
+    border-radius: $spacer-03;
+    object-fit: contain;
+    mix-blend-mode: darken;
+
+    &.xsmall {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.small {
+      width: 32px;
+      height: 32px;
+    }
+
+    &.medium {
+      width: 40px;
+      height: 40px;
+      border-radius: $radius-large;
+    }
+
+    &.large {
+      width: 48px;
+      height: 48px;
+    }
+
+    &.xlarge {
+      width: 64px;
+      height: 64px;
+      border-radius: $radius-large;
+    }
+
+    &.xxlarge {
+      width: 104px;
+      height: 104px;
+      flex-shrink: 0;
+      border-radius: $radius-large;
+    }
+  }
+
+  &.product .image-border {
+    clip-path: circle(60px);
+  }
+
+  &.product:not(.avatar-border) {
+    outline: none;
+  }
+
+  &.product-square:not(.avatar-border) {
+    outline: none;
+  }
+}
+
+.image-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  &.disabled {
+    opacity: 0.4;
+  }
+
+  .person,
+  .product-square {
+    border-radius: $radius-round;
+    object-fit: cover;
+    mix-blend-mode: darken;
+
+    &.xsmall {
+      width: 32px;
+      height: 32px;
+    }
+
+    &.small {
+      height: 40px;
+      width: 40px;
+    }
+
+    &.medium {
+      height: 48px;
+      width: 48px;
+    }
+
+    &.large {
+      height: 64px;
+      width: 64px;
+    }
+
+    &.xlarge {
+      height: 88px;
+      width: 88px;
+    }
+
+    &.xxlarge {
+      height: 120px;
+      width: 120px;
+    }
+  }
+
+  .person {
+    box-sizing: border-box;
+    border: 1px solid $border-01;
+  }
+
+  .product-square {
+    border-radius: $radius-medium;
+  }
+}
+
+.icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    display: flex;
+    padding: $spacer-03 - 1px;
+    justify-content: center;
+    align-items: center;
+    background: $black-200;
+    border: 1px solid $border-01;
+    border-radius: $radius-round;
+
+    @include avatar-colors;
+
+    &.disabled {
+      background: $background-03;
+    }
+
+    &.xsmall {
+      width: 16px;
+      height: 16px;
+    }
+
+    &.small {
+      padding: 10px - 1px;
+      height: 20px;
+      width: 20px;
+    }
+
+    &.medium {
+      padding: $spacer-04 - 1px;
+      height: 24px;
+      width: 24px;
+    }
+
+    &.large {
+      padding: $spacer-05 - 1px;
+      height: 32px;
+      width: 32px;
+    }
+
+    &.xlarge {
+      padding: 20px - 1px;
+      width: 48px;
+      height: 48px;
+    }
+
+    &.xxlarge {
+      padding: $spacer-07 - 1px;
+      width: 56px;
+      height: 56px;
+    }
+
+    &.icon-background {
+      background: none;
+    }
+  }
+}
+
+.swatch {
+  box-sizing: border-box;
+  border: 1px solid $border-01;
+  border-radius: $radius-round;
+
+  &.xsmall {
+    width: 32px;
+    height: 32px;
+  }
+
+  &.small {
+    width: 40px;
+    height: 40px;
+  }
+
+  &.medium {
+    width: 48px;
+    height: 48px;
+  }
+
+  &.large {
+    width: 64px;
+    height: 64px;
+  }
+
+  &.xlarge {
+    width: 88px;
+    height: 88px;
+  }
+
+  &.xxlarge {
+    width: 120px;
+    height: 120px;
+  }
+
+  &.disabled {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.avatar-skeleton {
+  background: $miscellaneous-skeleton-background-01;
+  border-radius: $radius-round;
+  animation: fade 2s infinite;
+
+  &.product-square {
+    border-radius: $radius-medium;
+  }
+
+  &.xsmall {
+    width: 32px;
+    height: 32px;
+  }
+
+  &.small {
+    width: 40px;
+    height: 40px;
+  }
+
+  &.medium {
+    width: 48px;
+    height: 48px;
+  }
+
+  &.large {
+    width: 64px;
+    height: 64px;
+  }
+
+  &.xlarge {
+    width: 88px;
+    height: 88px;
+  }
+
+  &.xxlarge {
+    width: 120px;
+    height: 120px;
+  }
+
+  &.disabled {
+    opacity: 0.4;
+  }
+}

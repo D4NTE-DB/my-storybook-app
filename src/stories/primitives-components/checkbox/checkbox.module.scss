@@ -1,0 +1,231 @@
+@use 'sass:color';
+@use '../../core-ui/styles/variables.scss' as *;
+
+// stylelint-disable no-descending-specificity
+.checkbox-wrapper {
+  position: relative;
+
+  /* hides the default input checkbox from the dom */
+  input[type='checkbox'],
+  input[type='checkbox']:not(:checked),
+  input[type='checkbox']:disabled,
+  input[type='checkbox']:not(:checked):disabled {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    inset-inline-start: 0;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+  }
+
+  /* sets the cursor for the disabled checkbox */
+  input[type='checkbox']:disabled,
+  input[type='checkbox']:not(:checked):disabled {
+    cursor: not-allowed;
+  }
+
+  &.checkbox {
+    display: flex;
+    flex-direction: row;
+    margin-block: $spacer-02 $spacer-02;
+
+    &.top,
+    &.middle,
+    &.bottom {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &.top {
+      align-items: flex-start;
+    }
+
+    &.middle {
+      align-items: center;
+    }
+
+    &.bottom {
+      align-items: flex-end;
+    }
+
+    .label-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin-left: $spacer-04;
+
+      &.disabled {
+        cursor: not-allowed;
+      }
+    }
+
+    .checkbox-label {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      gap: $spacer-04;
+      width: max-content;
+      margin-bottom: 0;
+    }
+
+    /* creates custom checkbox, replacing the input checkbox */
+    .checkbox-label::before {
+      content: '';
+      width: 16px;
+      height: 16px;
+      margin: 2px;
+      border-radius: 4px;
+      display: inline-flex;
+    }
+
+    /* default unchecked checkbox state */
+    input[type='checkbox'] + span::before {
+      background: $background-03;
+      border: 2px solid transparent;
+      outline: 1px solid $border-03;
+      outline-offset: -3px;
+    }
+
+    /* default checked checkbox state */
+
+    .checkbox-label:active::before,
+    input[type='checkbox']:checked + span::before {
+      background-color: $background-01-alt-selected;
+      border: 2px solid $border-active-01;
+      outline: 1px solid transparent;
+    }
+
+    /* checkbox hover state */
+    .checkbox-label:hover::before,
+    input[type='checkbox']:hover + span::before,
+    input[type='checkbox']:hover.indeterminate + span::before {
+      background-color: $background-01-hover;
+      border: 2px solid $border-03;
+      cursor: pointer;
+      outline: 1px solid transparent;
+    }
+
+    /* disabled state when not checked */
+    input[type='checkbox']:disabled + span::before {
+      background-color: transparent;
+      border: 2px solid transparent;
+      outline: 1px solid $border-01;
+    }
+
+    /* disabled state when checked */
+    input[type='checkbox']:checked:disabled + span::before {
+      background-image: url('./checked-disabled.svg');
+      background-color: transparent;
+      background-position: center;
+      border: 2px solid $icon-disabled;
+      outline: 1px solid transparent;
+    }
+
+    /* not disabled state */
+
+    input[type='checkbox']:checked + span::before {
+      background-image: url('./checked.svg');
+      background-position: center;
+    }
+
+    /* indeterminate state */
+    input[type='checkbox'].indeterminate + span::before {
+      background-image: url('./indeterminate.svg');
+      background-color: $background-01-alt-selected;
+      background-position: center;
+      border: 2px solid $icon-primary;
+      outline: 1px solid transparent;
+    }
+
+    /* indeterminate disabled state */
+    input[type='checkbox']:disabled.indeterminate-disabled + span::before {
+      background-image: url('./indeterminate-disabled.svg');
+      background-color: transparent;
+      background-position: center;
+      border: 2px solid $icon-disabled;
+      outline: 1px solid transparent;
+    }
+
+    /* focus-visible state when checked */
+
+    input[type='checkbox']:focus-visible + span::before {
+      border: 2px solid transparent;
+      outline: dashed 1px $icon-primary;
+      outline-offset: 2px;
+    }
+
+    /* focus-visible state when not checked */
+    input[type='checkbox']:focus-visible:not(:checked) + span::before {
+      background-color: $background-01-hover;
+      border: 2px solid transparent;
+      outline: dashed 1px $icon-primary;
+      outline-offset: 2px;
+    }
+
+    /* focus-visible indeterminate state */
+    input[type='checkbox']:focus-visible.indeterminate + span::before {
+      border: 2px solid transparent;
+      outline: dashed 1px $icon-primary;
+      outline-offset: 2px;
+    }
+
+    /* error state of default checkbox */
+    &.error input[type='checkbox'] + span::before {
+      background-color: $support-negative-light;
+      outline: 1px solid $support-negative;
+    }
+
+    /* error states for hover, active, and checked */
+    &.error .checkbox-label:hover::before,
+    &.error input[type='checkbox']:hover + span::before,
+    &.error .checkbox-label:active::before,
+    &.error input[type='checkbox']:checked + span::before {
+      background-color: $support-negative-light;
+      border: 2px solid $support-negative;
+      outline: none;
+    }
+
+    /* indeterminate disabled state */
+    &.error
+      input[type='checkbox']:disabled.indeterminate-disabled
+      + span::before,
+    &.error input[type='checkbox'].indeterminate + span::before {
+      background-color: $support-negative-light;
+      background-image: url('./indeterminate.svg');
+      border: 2px solid $support-negative;
+    }
+  }
+
+  input[type='checkbox'] {
+    height: 24px;
+    width: 24px;
+    margin: 0;
+    box-shadow: 0 0 0 2px $border-03;
+  }
+
+  .text-label {
+    color: $text-primary;
+  }
+}
+
+.checkbox-skeleton-container {
+  display: flex;
+  align-items: center;
+
+  #checkbox-skeleton {
+    background: $miscellaneous-skeleton-background-01;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: $radius-xsmall;
+    box-shadow: 0 0 0 1px $miscellaneous-skeleton-background-01;
+  }
+
+  #label-skeleton {
+    background: $miscellaneous-skeleton-background-01;
+    display: inline-block;
+    height: 16px;
+    margin-left: 12px;
+    width: 106px;
+  }
+}
